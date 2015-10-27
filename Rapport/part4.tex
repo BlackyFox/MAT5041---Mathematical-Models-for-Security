@@ -1,4 +1,18 @@
 \section{Question 4}
 \textit{Décrivez et expliquez les principaux résultats de la référence \cite{tiquette} et comment les auteurs ont résolus le problème du contrôle de zone via l'algorithme de Ford-Fulkerson.}\\~\\\par
 L'article donné en référence pour ce projet est à propos d'une étude réalisée par cinq chercheurs aux Etat-Unis. Cette dernière consiste en l'identification de postes de contrôles afin de protéger les grandes villes américaines.\\
-Afin de trouver les localisions optimales des points de contrôle, les chercheurs ont trouvés plusieurs approches. Cependant, celle retenue consiste à chercher les points de contrôles minimum permettant de sécuriser la région choisie. Cet ensemble de points de contrôle est le appelé Minimum Cut Set (MCS) en théorie des graphes.
+Afin de trouver les localisions optimales des points de contrôle, les chercheurs ont trouvés plusieurs approches. Cependant, celle retenue consiste à chercher les points de contrôles minimum permettant de sécuriser la région choisie. Cet ensemble de points de contrôle est le appelé Minimum Cut Set (MCS) en théorie des graphes. En effet, nous pouvons représenter la ville à protéger par un graphe. Les liens seraient alors la représentation des axes de circulation et les nœuds les intersections entre plusieurs axes (un un changement d'état pour un axe). Ainsi, le MCS permet de réaliser une coupe du graphe en deux parties disjointes.\\
+Dans notre cas, nous souhaitons avoir le moins de liens à couper afin de ne mettre en place que des points de contrôles stratégiques. Ce problème peut être résolu par l'algorithme de flux maximum de Ford-Fulkerson.\\
+Dans le cadre de cette étude, il ne sera pas pris en compte le coût des points de contrôle qui pourront être mis en place.\\
+Tout au long de cet articles, les chercheurs se sont focalisés sur les 50 plus grandes villes américaines (c.f. annexe \ref{annexe:1}).\\~\\\par
+Dans un premier temps, il est nécessaire de définir deux variables que nous allons réutiliser tout au long de cette explication :
+\begin{itemize}
+ \item $r_i$, le rayon interne. Celui-ci définie la zone que nous souhaitons protéger. Si un acteur malveillant parvient à rentrer au sein de cette zone, alors nous devons considérer cette dernière comme perdue.
+ \item $r_o$, le rayon externe. Celui-ci va correspondre à la zone au sein de laquelle nous allons effectuer nos contrôles.
+\end{itemize}
+Nous avons ici un système de cercles concentriques. Le cercle interne doit avoir un rayon $r_i$ inférieur ou égal à celui du cercle externe, $r_o$ comme le montre l'image suivante :
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=.3\textwidth]{img/circles.png}
+ \caption{Représentation des cercles interne et externe pour la ville de Phoenix}
+\end{figure}

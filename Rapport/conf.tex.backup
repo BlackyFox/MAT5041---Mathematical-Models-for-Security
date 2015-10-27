@@ -54,14 +54,14 @@
 
 \lstset{escapechar=@}
 
-\rhead{BAUDVIN - CASSAGNES - LAVILLE - PUISSANT}
+\rhead{BAUDVIN PUISSANT}
 \chead{}
-\lhead{Mini-projet MAT5041}
+\lhead{TP-ECC-2015-2016}
 
 \pagestyle{fancy}
 
 \sloppy
 
 \addbibresource{biblio.bib}
-% \include{glossary}
+\include{glossary}
 

@@ -47,7 +47,7 @@ Les chercheurs se sont ici attardé sur une les coupes pour le système $M(15,45
  \centering
  \begin{tabular}{|l|c|c|c|}
     \toprule
-    \textbf{City} & \textbf{$M(15,15)$} & \textbf{$M(15,45)$} & \textbf{MCS réduction}\\\midrule
+    \textbf{Ville} & \textbf{$M(15,15)$} & \textbf{$M(15,45)$} & \textbf{MCS réduction}\\\midrule
     Miami & 309 & 16 & $95\%$ \\\hline
     Virginia Beach & 167 & 10 & $94\%$ \\\hline
     Los Angeles & 650 & 61 & $91\%$ \\\hline
@@ -77,3 +77,20 @@ Afin de réaliser une analyse de coût de leur solution, les chercheurs on alors
  \item New York City
  \item Philadelphie
 \end{enumerate}
+Le but de cette démarche est de connaître le nombre de points de contrôle nécessaires en fonction de la taille de la zone à protéger. Pour ce faire, ils ont fixé $r_o=45$. On peut alors retrouver la taille des MCS dans le tableau \ref{tab:2}.
+\begin{table}[H]
+ \centering
+ \begin{tabular}{|l|c|c|c|c|c|}
+    \toprule
+    \textbf{Ville} & \textbf{$M(5,45)$} & \textbf{$M(15,45)$} & \textbf{$M(25,45)$} & \textbf{$M(35,45)$} & \textbf{$M(40,45)$}\\\midrule
+    San Francisco & 17 & 39 & 46 & 84 & 95\\\hline
+    Austin & 33 & 46 & 65 & 88 & 109\\\hline
+    New York City & 46 & 87 & 109 & 128 & 168\\\hline
+    Philadelphie & 88 & 124 & 143 & 177 & 204\\\bottomrule
+ \end{tabular}
+ \caption{Nombre total des points de contrôle pour les villes représentatives}
+ \label{tab:2}
+\end{table}
+Grâce à ces calculs, on se rend rapidement compte qu'il est possible de protéger une plus grande zone avec le même nombre de point de contrôle (83 points de contrôle pour protéger 8 ou 12 miles de New York City). Ce n'est Cependant pas le cas de toutes les villes puisque pour Austin ou Philadelphie, l'augmentation du nombre de points de contrôle se fait à chaque augmentation de la taille de la zone à protéger.\\~\\~\\\par
+Pour conclure, nous pouvons noter que les chercheur ont pu résoudre le problème du contrôle de zone grâce à l'algorithme de Ford-Fulkerson. En effet, en représentant les axes routiers de grandes villes comme des graphes, il leur a été possible de déterminer un MCS de la zone, dont tous les points d'intersections représentent des points de contrôle. Leur étude à permis de mettre en évidence la relation entre la taille de la zone à protéger, la taille de la zone de contrôle, l'environnement géographique de la ville et le nombre de points de contrôle.\\
+Cependant, dans cette démarche, tous les axes routiers avaient le même poids dans le graphe. Aucun axe n'est plus important qu'un autre. Il serait judicieux, pour mettre un modèle beaucoup plus efficace (permettant de savoir quel type de contrôle mettre en place à chaque point de contrôle) de pondérer les axes en fonction de leur taille, importance.

@@ -1,3 +1,30 @@
 \section{Question 2}
-\textit{Etudiez l'algorithme de Ford-Fulkerson pour résoudre le problème du flot maximal. Décrivez-en le principe et les principales étapes algorithmiques.}
-
+\textit{Etudiez l'algorithme de Ford-Fulkerson pour résoudre le problème du flot maximal. Décrivez-en le principe et les principales étapes algorithmiques.}\\
+Dans cette partie nous allons étudier l'algorihme de Ford-Fulkerson, l'écire en pseudo code puis expliciter chacun des étapes pour en comprendre le fonctionnement.\\
+L'algorithme de Ford-Fulkerson (noté FF dans cette partie) est un algorithme qui permet de résoudre le problème du flox maximum dans un flot à une entrée et une sortie. Chacun des ces paramètre est représenté sous la forme de noeud, structure classique des graphes qui sont reliés par des arcs. L'agorithme FF permet d'optimiser les flux dans les réseaux qui sont représentables dans les graphes (d'où le rapport entre le document et son application).\\
+Ci-desous le pseudo code de l'algorithme:\\
+Les entrées:\begin{itemize}
+\item Un graphe G de capacité \textit{c}, noeud de départ \textit{s} et arrivé \textit{t};
+\end{itemize}
+Les sorties:\begin{itemize}
+\item Une flux minimum entre \textit{s} et \textit{t}
+\end{itemize}
+\textbf{Algorithme \textit{Ford-Fulkerson}}
+\begin{enumerate}
+\item $f(u,v) \leftarrow 0$ \\ On met le poids des arcs à 0 pour tous les couples $(u,v)$; u et v étant des noeuds appartenant au graphe G.
+\item \textbf{Tantque}($p=$ExisteUnChemin(s,t) \& capacité(u,v) $> 0$) \textbf{alors}\\
+On itère alors des instructions en s'assurant que la capacité entre les noeuds u et v où l'on se situe permet de faire passer le dit flux dans le graphe. On vérifie aussi que le chemin entre s et t existe toujours.
+\begin{itemize}
+\item Chercher(capacité\_min(p))\\
+On cherche alors la capacité minimale de p, le chemin entre s et t.
+\item \textbf{PourChaque} $(u,v)\in p$ \textbf{faire}
+\begin{itemize}
+\item $f(u,v) \leftarrow f(u,v) + capacite(p)$\\
+On envoie le flux à travers le graphe et on met à jour les poids des arcs
+\item $f(v,u) \leftarrow f(v,u) - capacite(p)$\\
+Cette instruction n'est là que si retourner la valeur du flux minimum à travers le graphe est nécessaire
+\end{itemize}
+\textbf{fin\_PourChaque}
+\end{itemize}
+\textbf{fin\_Tantque}
+\end{enumerate}

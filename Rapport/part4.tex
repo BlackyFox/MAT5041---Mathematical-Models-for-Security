@@ -32,4 +32,48 @@ Si nous prenons un cercle externe plus grand, nous pouvons constater que le nomb
  \caption{Représentation des cercles interne et externe pour la ville de Phoenix avec une MCS $(15,45)$}
  \label{img:2}
 \end{figure}
-Ici, nous sommes dans une configuration $(15,45)$. Ainsi, nous avons une zone tampon beaucoup plus grande que dans l'exemple précédent. Ainsi, le nombre de points de contrôle va logiquement varier. En effet, en agrandissant la zone tampon, le nombre de routes va changer. Ainsi, nous avons dans notre configuration moins de petits axes coupant notre zone. La proportion de grands axes va alors faire diminuer le nombre de points de contrôles à 36.
+Ici, nous sommes dans une configuration $(15,45)$. Ainsi, nous avons une zone tampon beaucoup plus grande que dans l'exemple précédent. Ainsi, le nombre de points de contrôle va logiquement varier. En effet, en agrandissant la zone tampon, le nombre de routes va changer. Ainsi, nous avons dans notre configuration moins de petits axes coupant notre zone. La proportion de grands axes va alors faire diminuer le nombre de points de contrôles à 36.\\
+Ainsi, un des premiers résultats que l'étude permet de montrer est la relation entre la zone tampon et le nombre de points de contrôle nécessaires à la protection de la zone. Afin de définir quel est le meilleur couple de variables pour chacune des villes, l'étude s'est focalisée sur trois tailles de cercles internes $r_i$ : $5$, $10$ et $15$ miles. Il est ainsi possible de regrouper les différentes villes grâce au regroupement $k$-moyen.\\
+En suivant ces règles, et en définissant $r_o$ à $45$ miles, les chercheurs ont pu comparer les résultats obtenus pour les différentes villes. Nous pouvons retrouver sur l'image \ref{img:3} la distribution des tailles des MCS pour un couple de zones $M(15,45)$.
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=.7\textwidth]{img/histo.png}
+ \caption{Distribution des tailles de MCS pour $M(15,45)$}
+ \label{img:3}
+\end{figure}
+On remarque alors que la taille médiane de la coupe est de $55,5$. Ces coupes sont majorées par la coupe de Philadelphie ($124$) et minorée par celle de Las Vegas ($10$). Nous expliquerons plus tard en quoi une aussi grande variation a lieu.\\
+Les chercheurs se sont ici attardé sur une les coupes pour le système $M(15,45)$. En effet, en étudiant les différentes possibilités de zone tampon, ils se sont rendu compte qu'il était possible de réduire la taille de la coupe MCS jusqu'à $95\%$ en augmentant la zone. En effet, si l'on observe les résultats reportés dans le tableau \ref{tab:1}, nous pouvons remarquer que la taille des MCS de chaque ville diminue en passant de $M(15,15)$ à $M(15,45)$.
+\begin{table}[H]
+ \centering
+ \begin{tabular}{|l|c|c|c|}
+    \toprule
+    \textbf{City} & \textbf{$M(15,15)$} & \textbf{$M(15,45)$} & \textbf{MCS réduction}\\\midrule
+    Miami & 309 & 16 & $95\%$ \\\hline
+    Virginia Beach & 167 & 10 & $94\%$ \\\hline
+    Los Angeles & 650 & 61 & $91\%$ \\\hline
+    New York City & 759 & 87 & $89\%$ \\\hline
+    Atlanta & 478 & 98 & $79\%$ \\\hline
+    Indianapolis & 293 & 107 & $63\%$ \\\hline
+    Oklahoma City & 215 & 91 & $62\%$ \\\hline
+    Columbus & 188 & 91 & $52\%$ \\\bottomrule
+ \end{tabular}
+ \caption{Diminution de la taille des MCS en augmentant de 30 miles la zone tampon}
+ \label{tab:1}
+\end{table}
+Cela s'explique du fait que plus nous sommes proche du centre des villes, plus le nombre d'axes routiers est important. En effet, en pouvant effectuer les contrôles sur une zone plus large, les axes des villes se regroupent en de plus grands axes. Il est alors plus simple de réduire le nombre de points de contrôle sur ces grands axes. Les réductions sont plus où moins grandes en fonction de la position géographique des villes. En effet, pour des villes comme Columbus ou Oklahoma City, il n'y a aucune barrière naturelle. Ainsi de axes routiers viennent de tout part autour de ces dernières. Cependant, pour des villes comme Miami ou Virginia Beach, la règle opposée s'applique. En effet, Miami possède des barrières naturelles (l'océan Atlantique à l'Est, les Everglades à l'Ouest, le Golfe du Mexique au Sud). Il n'existe alors que peu d'axes routiers, permettant un contrôle total de la circulation avec un minimum de points de contrôle.\\
+Si l'on reproduit ce procédé en changeant la taille du cercle interne (5, 10 ou 15 miles), on se rend compte qu'à partir d'une certaine taille de la zone tampon (augmentation du cercle externe), la taille du MCS se stabilise, et cela peut importe la position géographique de la ville ou la taille du cercle interne.\\
+On peut alors noter que la réduction de la taille du MCS est effectuée assez rapidement. Il n'est pas nécessaire d'augmenter la taille de la zone tampon de manière trop importante pour obtenir de très bon résultats. Pour un cercle externe, $r_o=30$ miles, pour plus de 45 villes ma taille de la MCS est $64\%$ plus petite que le cas $M(15,15)$.\\~\\\par
+Afin de pouvoir réaliser un modèle pouvant s'appliquer à plus de villes, les chercheurs ont voulu regrouper les villes étudiées en différents groupes en fonction de la taille de leur MCS. Ils ont pour cela utilisé l'algorithme du $k-$moyen. On retrouve alors quatre groupes :
+\begin{itemize}
+ \item Le premier regroupe des villes ayant un MCS très petit. De manière générale, ces villes sont protégées par des barrières naturelles et ne sont alors qu'accessible que par peu de routes.
+ \item Les groupes deux et trois sont assez similaire. On y retrouve des villes dont le MCS minimum est rapidement atteint lors de l'augmentation de la zone tampon.
+ \item Enfin, le dernier groupe rassemble quand à lui les villes au MCS le plus grand. Pour la majeure partie de ces villes, il n'y a pas de barrière naturelle et de nombreux axes routiers arrivent de part et d'autre. Elles ont des réseaux routiers beaucoup plus important que les autres villes.
+\end{itemize}
+Cependant, ce regroupement ne permet pas d'établir un modèle parfait, mais une approximation des moyens qui seront à mettre en place pour les villes.\\~\\\par
+Afin de réaliser une analyse de coût de leur solution, les chercheurs on alors sélectionné une ville de chaque groupe :
+\begin{enumerate}
+ \item San Francisco
+ \item Austin
+ \item New York City
+ \item Philadelphie
+\end{enumerate}

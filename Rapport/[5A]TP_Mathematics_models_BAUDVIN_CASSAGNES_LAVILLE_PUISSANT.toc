@@ -10,8 +10,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Question 4}{6}{section.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{11}{table.caption.7}
+\contentsline {section}{R\IeC {\'e}f\IeC {\'e}rences}{11}{section*.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Annexes}{11}{appendix.A}
+\contentsline {section}{\numberline {A}Annexes}{12}{appendix.A}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1}Liste des villes \IeC {\'e}tudi\IeC {\'e}es}{11}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.1}Liste des villes \IeC {\'e}tudi\IeC {\'e}es}{12}{subsection.A.1}

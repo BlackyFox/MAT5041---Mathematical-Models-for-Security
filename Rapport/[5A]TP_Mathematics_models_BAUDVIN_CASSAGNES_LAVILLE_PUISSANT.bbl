@@ -1,0 +1,40 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{tiquette}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Stroud}{S.}%
+     {Daniel M. Watkins ; Leticia Cuellar ; Deborah A. Kubicek ; Erick
+  Rodriguez ; Phillip~D.}{D.~M. W. . L. C. . D. A. K. . E. R. . P.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SDMWLCDAKERPD1}
+  \strng{fullhash}{SDMWLCDAKERPD1}
+  \field{sortinit}{S}
+  \field{title}{Identifying Security checkpoints Locations to Protect the Major
+  US Urban Areas}
+  \field{journaltitle}{Homeland Security Affairs}
+  \field{year}{2015}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
